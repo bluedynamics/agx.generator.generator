@@ -1,0 +1,5 @@
+#---AGX Properties---
+#Sun Sep 30 18:23:22 CEST 2012
+profiles=zca
+generator=/home/phil/dev/projects/agx.dev/bin/agx
+target=.

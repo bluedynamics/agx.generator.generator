@@ -1,0 +1,5 @@
+#---AGX Properties---
+#Sun Sep 30 18:24:02 CEST 2012
+profiles=pyegg;zca
+target=/home/phil/dev/projects/agx.dev/devsrc/agx.generator.generator/src/agx/generator/generator/tests/data
+generator=/home/phil/dev/projects/agx.dev/bin/agx
