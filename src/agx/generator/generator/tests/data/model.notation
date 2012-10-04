@@ -19,7 +19,7 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_0vrm0FyQEeG1mLF7jMwarw" type="5026"/>
     <children xmi:type="notation:DecorationNode" xmi:id="_0vsN4FyQEeG1mLF7jMwarw" type="7016">
-      <children xmi:type="notation:Shape" xmi:id="_Rw7hQAshEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="15053796" lineColor="0">
+      <children xmi:type="notation:Shape" xmi:id="_Rw7hQAshEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="12560536" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Rw8IUAshEeKGfoivsLRX3g" source="ShadowFigure">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Rw8IUQshEeKGfoivsLRX3g" key="ShadowFigure_Value" value="false"/>
         </eAnnotations>
@@ -58,7 +58,7 @@
         <element xmi:type="uml:Class" href="model.uml#_RwyXUAshEeKGfoivsLRX3g"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rw7hQQshEeKGfoivsLRX3g" x="290" y="34" width="110" height="35"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_ZmWzIAsmEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="15053796" transparency="50" lineColor="0">
+      <children xmi:type="notation:Shape" xmi:id="_ZmWzIAsmEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="12560536" transparency="50" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZmWzIgsmEeKGfoivsLRX3g" source="ShadowFigure">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ZmWzIwsmEeKGfoivsLRX3g" key="ShadowFigure_Value" value="false"/>
         </eAnnotations>
@@ -97,7 +97,7 @@
         <element xmi:type="uml:Class" href="model.uml#_ZmRTkAsmEeKGfoivsLRX3g"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZmWzIQsmEeKGfoivsLRX3g" x="40" y="34" width="97" height="36"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_NHTUoAsqEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="8905185" lineColor="0">
+      <children xmi:type="notation:Shape" xmi:id="_NHTUoAsqEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="10265827" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NHTUogsqEeKGfoivsLRX3g" source="ShadowFigure">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NHTUowsqEeKGfoivsLRX3g" key="ShadowFigure_Value" value="false"/>
         </eAnnotations>
@@ -136,7 +136,7 @@
         <element xmi:type="uml:Class" href="model.uml#_NHPDMAsqEeKGfoivsLRX3g"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NHTUoQsqEeKGfoivsLRX3g" x="50" y="134" width="153" height="71"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_WqilcAsqEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="8905185" lineColor="0">
+      <children xmi:type="notation:Shape" xmi:id="_WqilcAsqEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="10265827" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WqjMgAsqEeKGfoivsLRX3g" source="ShadowFigure">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WqjMgQsqEeKGfoivsLRX3g" key="ShadowFigure_Value" value="false"/>
         </eAnnotations>
@@ -175,7 +175,7 @@
         <element xmi:type="uml:Class" href="model.uml#_WqdF4AsqEeKGfoivsLRX3g"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WqilcQsqEeKGfoivsLRX3g" x="275" y="134" width="141" height="66"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_EG2yYAsrEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="8905185" lineColor="0">
+      <children xmi:type="notation:Shape" xmi:id="_EG2yYAsrEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="10265827" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EG2yYgsrEeKGfoivsLRX3g" source="ShadowFigure">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EG2yYwsrEeKGfoivsLRX3g" key="ShadowFigure_Value" value="false"/>
         </eAnnotations>
@@ -233,7 +233,7 @@
         </eAnnotations>
         <children xmi:type="notation:DecorationNode" xmi:id="_XhJLYgssEeKGfoivsLRX3g" type="5017"/>
         <children xmi:type="notation:DecorationNode" xmi:id="_XhJLYwssEeKGfoivsLRX3g" type="7010">
-          <children xmi:type="notation:Shape" xmi:id="_HAp0kAssEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+          <children xmi:type="notation:Shape" xmi:id="_HAp0kAssEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="8047085" lineColor="0">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HAqboAssEeKGfoivsLRX3g" source="ShadowFigure">
               <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HAqboQssEeKGfoivsLRX3g" key="ShadowFigure_Value" value="false"/>
             </eAnnotations>
@@ -272,7 +272,7 @@
             <element xmi:type="uml:Class" href="model.uml#_HAh4wAssEeKGfoivsLRX3g"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HAp0kQssEeKGfoivsLRX3g" x="425" y="23" width="97" height="46"/>
           </children>
-          <children xmi:type="notation:Shape" xmi:id="_X0PjAAsrEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+          <children xmi:type="notation:Shape" xmi:id="_X0PjAAsrEeKGfoivsLRX3g" type="3010" fontName="Ubuntu" fillColor="8047085" lineColor="0">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X0PjAgsrEeKGfoivsLRX3g" source="ShadowFigure">
               <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X0QKEAsrEeKGfoivsLRX3g" key="ShadowFigure_Value" value="false"/>
             </eAnnotations>
@@ -344,7 +344,7 @@
           </eAnnotations>
         </children>
         <children xmi:type="notation:DecorationNode" xmi:id="_Ss1ngQsvEeKbFrhzZvXz8w" type="7010">
-          <children xmi:type="notation:Shape" xmi:id="_iYzKEAsvEeKbFrhzZvXz8w" type="3010" fontName="Ubuntu" fillColor="13420443" lineColor="0">
+          <children xmi:type="notation:Shape" xmi:id="_iYzKEAsvEeKbFrhzZvXz8w" type="3010" fontName="Ubuntu" fillColor="8905185" lineColor="0">
             <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iYzxIAsvEeKbFrhzZvXz8w" source="ShadowFigure">
               <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iY0YMAsvEeKbFrhzZvXz8w" key="ShadowFigure_Value" value="false"/>
             </eAnnotations>
@@ -381,13 +381,13 @@
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iY0_RAsvEeKbFrhzZvXz8w"/>
             </children>
             <element xmi:type="uml:Class" href="model.uml#_iYx78AsvEeKbFrhzZvXz8w"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iYzKEQsvEeKbFrhzZvXz8w" x="35" y="26" width="113" height="61"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iYzKEQsvEeKbFrhzZvXz8w" x="40" y="41" width="113" height="61"/>
           </children>
           <styles xmi:type="notation:TitleStyle" xmi:id="_Ss1nggsvEeKbFrhzZvXz8w"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ss1ngwsvEeKbFrhzZvXz8w"/>
         </children>
         <element xmi:type="uml:Package" href="model.uml#_Srs_EAsvEeKbFrhzZvXz8w"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SsxWEQsvEeKbFrhzZvXz8w" x="700" y="54" width="216" height="381"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SsxWEQsvEeKbFrhzZvXz8w" x="695" y="59" width="216" height="381"/>
       </children>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0vsN4VyQEeG1mLF7jMwarw"/>
     </children>
