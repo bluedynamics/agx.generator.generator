@@ -38,4 +38,5 @@ class GeneratorScope(Scope):
 class ScopeScope(Scope):
 
     def __call__(self, scope):
-        return node.stereotype('generator:class_scope') is not None
+        return node.stereotype('generator:class_scope') is not None or \
+            node.stereotype('generator:simple_scope') is not None

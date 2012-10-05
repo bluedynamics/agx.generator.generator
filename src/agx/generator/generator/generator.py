@@ -43,18 +43,18 @@ def generatescopeclass(self, source, target):
     methnames=[m.functionname for m in methods]
     methname='__call__'
     tgv=TaggedValues(source)
-    stereotype=tgv.direct('stereotype','generator:class_scope',None) or\
-        tgv.direct('stereotype','generator:simple_scope',None)
+    stereotypes=tgv.direct('stereotypes','generator:class_scope',None) or\
+        tgv.direct('stereotypes','generator:simple_scope',None)
     transform=tgv.direct('transform','generator:class_scope',None) or\
         tgv.direct('transform','generator:simple_scope',None) or \
         'uml2fs'
         
-    if not stereotype:
+    if not stereotypes:
         raise ValueError,'scope %s must have a stereotype attribute!!' % source.name
         
     if 'Scope' not in targetclass.bases:
         targetclass.bases.append('Scope')
-        
+    
     if methname not in methnames:
         f=Function()
         f.functionname=methname
@@ -64,7 +64,8 @@ def generatescopeclass(self, source, target):
         
         bl=Block()
         bl.__name__=str(bl.uuid)
-        bl.lines.append("return node.stereotype('%s') is not None" % stereotype)
+        conds=["node.stereotype('%s') is not None" % st for st in stereotypes]
+        cond=' or '.join(conds)
+        bl.lines.append("return %s" % cond)
         
         f.insertfirst(bl)
-        import pdb;pdb.set_trace()
