@@ -16,12 +16,12 @@ from node.ext.uml.interfaces import (
     IAssociation,
 )
 
-class ScopeClassScope(Scope):
+class ClassScopeScope(Scope):
 
     def __call__(self, node):
-        return node.stereotype('generator:scope_class') is not None
+        return node.stereotype('generator:class_scope') is not None
 
-registerScope('scopeclass', 'uml2fs', [IClass] , ScopeClassScope)
+registerScope('classscope', 'uml2fs', [IClass] , ClassScopeScope)
 
 class SimpleScopeScope(Scope):
 
@@ -30,5 +30,12 @@ class SimpleScopeScope(Scope):
 
 registerScope('simplescope', 'uml2fs', [IClass] , SimpleScopeScope)
 
-class GeneratorScope(object):
-    pass
+class GeneratorScope(Scope):
+
+    def __call__(self, scope):
+        return node.stereotype('generator:generator') is not None
+
+class ScopeScope(Scope):
+
+    def __call__(self, scope):
+        return node.stereotype('generator:class_scope') is not None
