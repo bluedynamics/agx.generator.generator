@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:agx="http://namespaces.zope.org/agx">
+
+  <include package="agx.generator.pyegg"/>
+
+  <utility
+      name="agx.generator.generator.profilelocation"
+      provides="agx.core.interfaces.IProfileLocation"
+      component=".profiles.ProfileLocation"/>
+
+</configure>

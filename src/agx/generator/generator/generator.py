@@ -28,11 +28,11 @@ from agx.core import (
 
 @handler('generatescopeclass', 'uml2fs', 'connectorgenerator',
          'scopeclass', order=9)
-def generatescopeclass(source, target):
+def generatescopeclass(self, source, target):
     '''preparation for joined table inheritance base class
     '''
     targetclass = read_target_node(source, target.target)
     
     module = targetclass.parent
-#    import pdb;pdb.set_trace()
-    classatts = [att for att in targetclass.filtereditems(IOperation)]
+    methods = [att for att in targetclass.filtereditems(IOperation)]
+    import pdb;pdb.set_trace()

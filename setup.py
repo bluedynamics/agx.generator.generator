@@ -26,7 +26,6 @@ setup(name="agx.generator.generator",
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.app.dexterity',
           ##code-section dependencies
           ##/code-section dependencies
       ],
