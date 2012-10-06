@@ -10,4 +10,10 @@
       provides="agx.core.interfaces.IProfileLocation"
       component=".profiles.ProfileLocation"/>
 
+  <agx:generator
+      name="zzcleanupgenerator"
+      transform="uml2fs"
+      depends="zcasemanticsgenerator"
+      description="XXX Generator for final code cleanup of scope classes, this     needs to be moved generically into pyegg as a final generator but      therefore we need an order field on generators to be sorted on"/>
+
 </configure>

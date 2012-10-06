@@ -15,4 +15,4 @@ config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.pl
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.buildout/src/agx/generator/buildout/configure.zcml
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.dexterity/src/agx/generator/dexterity/configure.zcml
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.generator/src/agx/generator/generator/configure.zcml
-main       INFO  Generator run took 7.79 sec.
+main       INFO  Generator run took 8.78 sec.

@@ -28,15 +28,21 @@ class SimpleScopeScope(Scope):
     def __call__(self, node):
         return node.stereotype('generator:simple_scope') is not None
 
-registerScope('simplescope', 'uml2fs', [IClass] , SimpleScopeScope)
+registerScope('simplescopescope', 'uml2fs', None , SimpleScopeScope)
+registerScope('simplescope', 'uml2fs', [IClass] , Scope)
 
 class GeneratorScope(Scope):
 
-    def __call__(self, scope):
+    def __call__(self, node):
         return node.stereotype('generator:generator') is not None
+
+registerScope('generator', 'uml2fs', [IClass] , GeneratorScope)
 
 class ScopeScope(Scope):
 
-    def __call__(self, scope):
+    def __call__(self, node):
         return node.stereotype('generator:class_scope') is not None or \
             node.stereotype('generator:simple_scope') is not None
+
+registerScope('scope', 'uml2fs', [IClass] , ScopeScope)
+registerScope('generatordependency', 'uml2fs', [IDependency] , Scope)
