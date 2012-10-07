@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from zope.component import getUtility
+from agx.core.interfaces import IScope
 from agx.core import (
     handler,
     Scope,
@@ -28,8 +30,7 @@ class SimpleScopeScope(Scope):
     def __call__(self, node):
         return node.stereotype('generator:simple_scope') is not None
 
-registerScope('simplescopescope', 'uml2fs', None , SimpleScopeScope)
-registerScope('simplescope', 'uml2fs', [IClass] , Scope)
+registerScope('simplescope', 'uml2fs', None , SimpleScopeScope)
 
 class GeneratorScope(Scope):
 
@@ -45,4 +46,31 @@ class ScopeScope(Scope):
             node.stereotype('generator:simple_scope') is not None
 
 registerScope('scope', 'uml2fs', [IClass] , ScopeScope)
-registerScope('generatordependency', 'uml2fs', [IDependency] , Scope)
+
+class GeneratorDependencyScope(Scope):
+
+    def __call__(self, node):
+        if IDependency.providedBy(node):
+            genscope=getUtility(IScope,'uml2fs.generatorstuff')
+            if genscope(node.client):
+                return True
+
+registerScope('generatordependency', 'uml2fs', [IDependency] , GeneratorDependencyScope)
+
+class GeneratorStuffScope(Scope):
+
+    def __call__(self, node):
+        return node.stereotype('generator:transform') is not None or\
+            node.stereotype('generator:generator') is not None or\
+            node.stereotype('generator:simple_scope') is not None or \
+            node.stereotype('generator:class_scope') is not None or \
+            node.stereotype('generator:handler') is not None
+
+registerScope('generatorstuff', 'uml2fs', [IClass] , GeneratorStuffScope)
+
+class HandlerScope(Scope):
+
+    def __call__(self, node):
+        return node.stereotype('generator:handler') is not None
+
+registerScope('handler', 'uml2fs', [IClass] , HandlerScope)

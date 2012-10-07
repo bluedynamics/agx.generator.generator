@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:generator="http:///schemas/generator/_U1KR4A9AEeKgqPBQmBCgQg/40" xmlns:pyegg="http:///schemas/pyegg/_m3LEwPJqEeC2FJWWHfGcuA/17" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/generator/_U1KR4A9AEeKgqPBQmBCgQg/40 src/agx/generator/generator/profiles/generator.profile.uml#_U1KR4Q9AEeKgqPBQmBCgQg http:///schemas/pyegg/_m3LEwPJqEeC2FJWWHfGcuA/17 uml_profiles/pyegg.profile.uml#_m3OIEPJqEeC2FJWWHfGcuA">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:generator="http:///schemas/generator/_aFnXMBCmEeKgqPBQmBCgQg/41" xmlns:pyegg="http:///schemas/pyegg/_m3LEwPJqEeC2FJWWHfGcuA/17" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/generator/_aFnXMBCmEeKgqPBQmBCgQg/41 src/agx/generator/generator/profiles/generator.profile.uml#_aFnXMRCmEeKgqPBQmBCgQg http:///schemas/pyegg/_m3LEwPJqEeC2FJWWHfGcuA/17 uml_profiles/pyegg.profile.uml#_m3OIEPJqEeC2FJWWHfGcuA">
   <uml:Model xmi:id="_rxHwYFyQEeG1mLF7jMwarw" name="model">
     <packagedElement xmi:type="uml:Package" xmi:id="_0vR-MFyQEeG1mLF7jMwarw" name="agx.generator.generator">
       <packagedElement xmi:type="uml:Package" xmi:id="_IZUgMNexEeGgbbtOgTBdsg" name="scope">
@@ -7,17 +7,23 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_fiAjoA7TEeKgj7WFwZrcAg" name="SimpleScopeScope"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_j9U4YA7TEeKgj7WFwZrcAg" name="ClassScopeScope"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_KfQJQA7YEeKgqPBQmBCgQg" name="ScopeScope"/>
-        <packagedElement xmi:type="uml:Class" xmi:id="_I815QA-yEeKgqPBQmBCgQg" name="DependencyScope"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_I815QA-yEeKgqPBQmBCgQg" name="GeneratorDependencyScope"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_TqsBUBCJEeKgqPBQmBCgQg" name="GeneratorStuffScope"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_SpipMBCQEeKgqPBQmBCgQg" name="HandlerScope"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_TFwNsNexEeGgbbtOgTBdsg" name="generator">
-        <packagedElement xmi:type="uml:Class" xmi:id="_pxXKIA-wEeKgqPBQmBCgQg" name="somehandler" clientDependency="_13cLIA-wEeKgqPBQmBCgQg"/>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_13cLIA-wEeKgqPBQmBCgQg" name="" supplier="_fiAjoA7TEeKgj7WFwZrcAg" client="_pxXKIA-wEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_pxXKIA-wEeKgqPBQmBCgQg" name="finalize_handler" clientDependency="_ErJ9oA_eEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_ErJ9oA_eEeKgqPBQmBCgQg" name="" supplier="_SpipMBCQEeKgqPBQmBCgQg" client="_pxXKIA-wEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Sw8S4BCqEeKgqPBQmBCgQg" name="make_generators" clientDependency="_g-Wz0BCqEeKgqPBQmBCgQg _iUGewBCqEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_g-Wz0BCqEeKgqPBQmBCgQg" name="" supplier="_VvMzwBCqEeKgqPBQmBCgQg" client="_Sw8S4BCqEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_iUGewBCqEeKgqPBQmBCgQg" name="" supplier="_Yv_FwA6dEeKgj7WFwZrcAg" client="_Sw8S4BCqEeKgqPBQmBCgQg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_VVM2YA6cEeKgj7WFwZrcAg" name="profiles">
         <packagedElement xmi:type="uml:Class" xmi:id="_7j3QsNewEeGgbbtOgTBdsg" name="ProfileLocation" clientDependency="_tdBm8NeyEeGgbbtOgTBdsg">
           <interfaceRealization xmi:id="_tdBm8NeyEeGgbbtOgTBdsg" name="" supplier="_iwYeENeyEeGgbbtOgTBdsg" client="_7j3QsNewEeGgbbtOgTBdsg" contract="_iwYeENeyEeGgbbtOgTBdsg"/>
         </packagedElement>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_VvMzwBCqEeKgqPBQmBCgQg" name="connectorgenerator"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_iwYeENeyEeGgbbtOgTBdsg" name="IProfileLocation"/>
     <profileApplication xmi:id="_zZ1OMFyQEeG1mLF7jMwarw">
@@ -34,7 +40,7 @@
     </profileApplication>
     <profileApplication xmi:id="_xvsocA6ZEeKgj7WFwZrcAg">
       <eAnnotations xmi:id="_xxNrYA6ZEeKgj7WFwZrcAg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="src/agx/generator/generator/profiles/generator.profile.uml#_U1KR4Q9AEeKgqPBQmBCgQg"/>
+        <references xmi:type="ecore:EPackage" href="src/agx/generator/generator/profiles/generator.profile.uml#_aFnXMRCmEeKgqPBQmBCgQg"/>
       </eAnnotations>
       <appliedProfile href="src/agx/generator/generator/profiles/generator.profile.uml#_RhKtUAspEeKGfoivsLRX3g"/>
     </profileApplication>
@@ -57,12 +63,26 @@
     <stereotypes>generator:simple_scope</stereotypes>
     <interfaces>IClass</interfaces>
   </generator:class_scope>
-  <generator:handler xmi:id="_zV1KAA-wEeKgqPBQmBCgQg" base_Class="_pxXKIA-wEeKgqPBQmBCgQg"/>
-  <pyegg:function xmi:id="_zWIE8A-wEeKgqPBQmBCgQg" base_Class="_pxXKIA-wEeKgqPBQmBCgQg"/>
-  <generator:simple_scope xmi:id="_DN2OwA-1EeKgqPBQmBCgQg" base_Class="_I815QA-yEeKgqPBQmBCgQg" scopename="generatordependency">
-    <interfaces>IDependency</interfaces>
-  </generator:simple_scope>
-  <generator:class_scope xmi:id="_VFukkA_cEeKgqPBQmBCgQg" base_Class="_fiAjoA7TEeKgj7WFwZrcAg">
+  <generator:handler xmi:id="_zV1KAA-wEeKgqPBQmBCgQg" base_Class="_pxXKIA-wEeKgqPBQmBCgQg" generator="gen_connectorgenerator"/>
+  <generator:class_scope xmi:id="_VFukkA_cEeKgqPBQmBCgQg" base_Class="_fiAjoA7TEeKgj7WFwZrcAg" scopename="simplescope">
     <stereotypes>generator:simple_scope</stereotypes>
   </generator:class_scope>
+  <generator:class_scope xmi:id="_vwtGQBCIEeKgqPBQmBCgQg" base_Class="_I815QA-yEeKgqPBQmBCgQg" scopename="generatordependency">
+    <interfaces>IDependency</interfaces>
+  </generator:class_scope>
+  <generator:class_scope xmi:id="_gnnx0BCJEeKgqPBQmBCgQg" base_Class="_TqsBUBCJEeKgqPBQmBCgQg" scopename="generatorstuff">
+    <stereotypes>generator:transform</stereotypes>
+    <stereotypes>generator:generator</stereotypes>
+    <stereotypes>generator:simple_scope</stereotypes>
+    <stereotypes>generator:class_scope</stereotypes>
+    <stereotypes>generator:handler</stereotypes>
+    <interfaces>IClass</interfaces>
+  </generator:class_scope>
+  <generator:class_scope xmi:id="_VqkKMBCQEeKgqPBQmBCgQg" base_Class="_SpipMBCQEeKgqPBQmBCgQg" scopename="handler">
+    <stereotypes>generator:handler</stereotypes>
+    <interfaces>IClass</interfaces>
+  </generator:class_scope>
+  <generator:generator xmi:id="_aUF7QBCqEeKgqPBQmBCgQg" base_Class="_VvMzwBCqEeKgqPBQmBCgQg"/>
+  <pyegg:stub xmi:id="_bdkr0BCqEeKgqPBQmBCgQg" base_Class="_VvMzwBCqEeKgqPBQmBCgQg"/>
+  <generator:handler xmi:id="_fwX9wBCqEeKgqPBQmBCgQg" base_Class="_Sw8S4BCqEeKgqPBQmBCgQg"/>
 </xmi:XMI>

@@ -93,6 +93,10 @@
         <element xmi:type="uml:Property" href="generator.profile.uml#_kIeE8A5xEeKgj7WFwZrcAg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_kIi9cQ5xEeKgj7WFwZrcAg"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_VrKlIBCmEeKgqPBQmBCgQg" type="3002" fontName="Ubuntu" lineColor="0">
+        <element xmi:type="uml:Property" href="generator.profile.uml#_Vq4RQBCmEeKgqPBQmBCgQg"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_VrKlIRCmEeKgqPBQmBCgQg"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_gMFppAspEeKGfoivsLRX3g"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_gMFppQspEeKGfoivsLRX3g"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_gMFppgspEeKGfoivsLRX3g"/>
