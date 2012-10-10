@@ -36,6 +36,8 @@ from agx.core import (
     registerScope,
     token
 )
+from agx.generator.pyegg.utils import egg_source
+from agx.generator.zca.utils import set_zcml_directive
 
 @handler('generatescopeclass', 'uml2fs', 'connectorgenerator', 'classscope',
          order=9)
@@ -268,12 +270,19 @@ def finalize_handler(self, source, target):
 
 @handler('make_generators', 'uml2fs', 'connectorgenerator', 'generator')
 def make_generators(self, source, target):
-    pass
+    egg=egg_source(source)
+    eggtarget=read_target_node(egg,target.target)
+    set_zcml_directive(eggtarget,'configure.zcml','agx:generator',
+                       'name',source.name,overwrite=False,
+                       )
+    print eggtarget
 
 @handler('mark_generators_as_stub', 'uml2fs', 'hierarchygenerator', 'pyclass',
          order=10)
 def mark_generators_as_stub(self, source, target):
-    isgenerator=getUtility(IScope,'uml2fs.generator')
-    if not isgenerator(source):
-        return
-    token('custom_handled_classes',True,classes=[]).classes.append(source)
+        isgenerator=getUtility(IScope,'uml2fs.generator')
+        if not isgenerator(source):
+            return
+        token('custom_handled_classes',True,classes=[]).classes.append(str(source.uuid))
+    #    token(str(source.uuid),True,dont_generate=True)
+        token(str(source.uuid), True, dont_generate=True).dont_generate = True
