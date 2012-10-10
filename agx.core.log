@@ -1,5 +1,5 @@
 config     DEBUG include /home/phil/dev/projects/agx.dev/src/agx/dev/configure.zcml
-config     DEBUG include /home/phil/dev/projects/agx.dev/eggs/zope.component-4.0.0-py2.6.egg/zope/component/meta.zcml
+config     DEBUG include /home/phil/dev/projects/agx.dev/eggs/zope.component-4.0.0-py2.7.egg/zope/component/meta.zcml
 main       INFO  AGX 3.0-dev - (c) BlueDynamics Alliance, http://bluedynamics.com, GPL 2
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.core/src/agx/core/configure.zcml
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.core/src/agx/core/meta.zcml
@@ -15,4 +15,4 @@ config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.pl
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.buildout/src/agx/generator/buildout/configure.zcml
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.dexterity/src/agx/generator/dexterity/configure.zcml
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.generator/src/agx/generator/generator/configure.zcml
-main       INFO  Generator run took 8.96 sec.
+main       INFO  Generator run took 6.65 sec.

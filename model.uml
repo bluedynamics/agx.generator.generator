@@ -12,18 +12,24 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_SpipMBCQEeKgqPBQmBCgQg" name="HandlerScope"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_TFwNsNexEeGgbbtOgTBdsg" name="generator">
-        <packagedElement xmi:type="uml:Class" xmi:id="_pxXKIA-wEeKgqPBQmBCgQg" name="finalize_handler" clientDependency="_ErJ9oA_eEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_pxXKIA-wEeKgqPBQmBCgQg" name="finalize_handler" clientDependency="_ErJ9oA_eEeKgqPBQmBCgQg _5oYgwBCuEeKgqPBQmBCgQg"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_ErJ9oA_eEeKgqPBQmBCgQg" name="" supplier="_SpipMBCQEeKgqPBQmBCgQg" client="_pxXKIA-wEeKgqPBQmBCgQg"/>
-        <packagedElement xmi:type="uml:Class" xmi:id="_Sw8S4BCqEeKgqPBQmBCgQg" name="make_generators" clientDependency="_g-Wz0BCqEeKgqPBQmBCgQg _iUGewBCqEeKgqPBQmBCgQg"/>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_g-Wz0BCqEeKgqPBQmBCgQg" name="" supplier="_VvMzwBCqEeKgqPBQmBCgQg" client="_Sw8S4BCqEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Sw8S4BCqEeKgqPBQmBCgQg" name="make_generators" clientDependency="_iUGewBCqEeKgqPBQmBCgQg _PKX8ABLzEeKq9vExglgxyg"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_iUGewBCqEeKgqPBQmBCgQg" name="" supplier="_Yv_FwA6dEeKgj7WFwZrcAg" client="_Sw8S4BCqEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_7NaaUBCtEeKgqPBQmBCgQg" name="mark_generators_as_stub" clientDependency="_ODKcUBLzEeKq9vExglgxyg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_5oYgwBCuEeKgqPBQmBCgQg" name="" supplier="_xLnv0BCuEeKgqPBQmBCgQg" client="_pxXKIA-wEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_ODKcUBLzEeKq9vExglgxyg" name="" supplier="_zmtHoBCtEeKgqPBQmBCgQg" client="_7NaaUBCtEeKgqPBQmBCgQg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_PKX8ABLzEeKq9vExglgxyg" name="" supplier="_EZo9UBLzEeKq9vExglgxyg" client="_Sw8S4BCqEeKgqPBQmBCgQg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_VVM2YA6cEeKgj7WFwZrcAg" name="profiles">
         <packagedElement xmi:type="uml:Class" xmi:id="_7j3QsNewEeGgbbtOgTBdsg" name="ProfileLocation" clientDependency="_tdBm8NeyEeGgbbtOgTBdsg">
           <interfaceRealization xmi:id="_tdBm8NeyEeGgbbtOgTBdsg" name="" supplier="_iwYeENeyEeGgbbtOgTBdsg" client="_7j3QsNewEeGgbbtOgTBdsg" contract="_iwYeENeyEeGgbbtOgTBdsg"/>
         </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_VvMzwBCqEeKgqPBQmBCgQg" name="connectorgenerator"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zmtHoBCtEeKgqPBQmBCgQg" name="hierarchygenerator"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_xLnv0BCuEeKgqPBQmBCgQg" name="gen_connectorgenerator"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_EZo9UBLzEeKq9vExglgxyg" name="connectorgenerator"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zV0IkBL1EeKq9vExglgxyg" name="somegenerator"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_iwYeENeyEeGgbbtOgTBdsg" name="IProfileLocation"/>
     <profileApplication xmi:id="_zZ1OMFyQEeG1mLF7jMwarw">
@@ -82,7 +88,13 @@
     <stereotypes>generator:handler</stereotypes>
     <interfaces>IClass</interfaces>
   </generator:class_scope>
-  <generator:generator xmi:id="_aUF7QBCqEeKgqPBQmBCgQg" base_Class="_VvMzwBCqEeKgqPBQmBCgQg"/>
-  <pyegg:stub xmi:id="_bdkr0BCqEeKgqPBQmBCgQg" base_Class="_VvMzwBCqEeKgqPBQmBCgQg"/>
   <generator:handler xmi:id="_fwX9wBCqEeKgqPBQmBCgQg" base_Class="_Sw8S4BCqEeKgqPBQmBCgQg"/>
+  <pyegg:stub xmi:id="_3ne1cBCtEeKgqPBQmBCgQg" base_Class="_zmtHoBCtEeKgqPBQmBCgQg"/>
+  <generator:generator xmi:id="_3n_y0BCtEeKgqPBQmBCgQg" base_Class="_zmtHoBCtEeKgqPBQmBCgQg"/>
+  <generator:handler xmi:id="_AenOMBCuEeKgqPBQmBCgQg" base_Class="_7NaaUBCtEeKgqPBQmBCgQg"/>
+  <generator:generator xmi:id="_h-XgIBLrEeKq9vExglgxyg" base_Class="_xLnv0BCuEeKgqPBQmBCgQg"/>
+  <pyegg:stub xmi:id="_h-kUcBLrEeKq9vExglgxyg" base_Class="_xLnv0BCuEeKgqPBQmBCgQg"/>
+  <generator:generator xmi:id="_JNft4BLzEeKq9vExglgxyg" base_Class="_EZo9UBLzEeKq9vExglgxyg"/>
+  <pyegg:stub xmi:id="_JNo30BLzEeKq9vExglgxyg" base_Class="_EZo9UBLzEeKq9vExglgxyg"/>
+  <generator:generator xmi:id="_5L5LIBL1EeKq9vExglgxyg" base_Class="_zV0IkBL1EeKq9vExglgxyg"/>
 </xmi:XMI>

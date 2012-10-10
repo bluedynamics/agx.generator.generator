@@ -37,8 +37,8 @@ from agx.core import (
     token
 )
 
-@handler('generatescopeclass', 'uml2fs', 'connectorgenerator',
-         'classscope', order=9)
+@handler('generatescopeclass', 'uml2fs', 'connectorgenerator', 'classscope',
+         order=9)
 def generatescopeclass(self, source, target):
     '''generates scope classes
     '''
@@ -77,8 +77,7 @@ def generatescopeclass(self, source, target):
     
         f.insertfirst(bl)
 
-@handler('generatescopereg', 'uml2fs', 'semanticsgenerator',
-         'scope', order=15)
+@handler('generatescopereg', 'uml2fs', 'semanticsgenerator', 'scope', order=15)
 def generatescopereg(self, source, target):
     targetclass = read_target_node(source, target.target)
     module = targetclass.parent
@@ -154,7 +153,8 @@ def generatescopereg(self, source, target):
     else:
         module.insertlast(bl)
 
-@handler('block_simple_scopes', 'uml2fs', 'hierarchygenerator', 'simplescope', order=25)
+@handler('block_simple_scopes', 'uml2fs', 'hierarchygenerator', 'simplescope',
+         order=25)
 def block_simple_scopes(self, source, target):
     """prevent simple_scopes from being generated as class.
     """
@@ -208,13 +208,13 @@ def collect_dependencies(self, source, target):
         if generatorscope(source.supplier):
             token(str(source.client.uuid), True, generators=[]).generators.append(source.supplier)
 
-@handler('mark_handler_as_function', 'uml2fs', 'hierarchygenerator',
-         'handler', order=15)
+@handler('mark_handler_as_function', 'uml2fs', 'hierarchygenerator', 'handler',
+         order=15)
 def mark_handler_as_function(self, source, target):
     token(str(source.uuid), True, is_function=True)
 
-@handler('finalize_handler', 'uml2fs', 'gen_connectorgenerator',
-         'handler', order=15)
+@handler('finalize_handler', 'uml2fs', 'gen_connectorgenerator', 'handler',
+         order=15)
 def finalize_handler(self, source, target):
     func = read_target_node(source, target.target)
     tok = token(str(source.uuid), True, scopes=[], generators=[])
@@ -269,3 +269,11 @@ def finalize_handler(self, source, target):
 @handler('make_generators', 'uml2fs', 'connectorgenerator', 'generator')
 def make_generators(self, source, target):
     pass
+
+@handler('mark_generators_as_stub', 'uml2fs', 'hierarchygenerator', 'pyclass',
+         order=10)
+def mark_generators_as_stub(self, source, target):
+    isgenerator=getUtility(IScope,'uml2fs.generator')
+    if not isgenerator(source):
+        return
+    token('custom_handled_classes',True,classes=[]).classes.append(source)
