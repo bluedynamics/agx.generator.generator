@@ -273,7 +273,7 @@ def make_generators(self, source, target):
     egg=egg_source(source)
     eggtarget=read_target_node(egg,target.target)
     set_zcml_directive(eggtarget,'configure.zcml','agx:generator',
-                       'name',source.name,overwrite=False,
+                       'name',source.name,overwrite=True,
                        )
     print eggtarget
 
