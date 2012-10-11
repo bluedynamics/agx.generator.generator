@@ -37,7 +37,8 @@ from agx.core import (
     token
 )
 from agx.generator.pyegg.utils import egg_source
-from agx.generator.zca.utils import set_zcml_directive
+from agx.generator.zca.utils import set_zcml_directive, get_zcml
+from node.ext.zcml import SimpleDirective
 
 @handler('generatescopeclass', 'uml2fs', 'connectorgenerator', 'classscope',
          order=9)
@@ -200,15 +201,21 @@ def collect_dependencies(self, source, target):
     handlerscope = getUtility(IScope, 'uml2fs.handler')
     scopescope = getUtility(IScope, 'uml2fs.scope')
     generatorscope = getUtility(IScope, 'uml2fs.generator')
+    transformscope = getUtility(IScope, 'uml2fs.transform')
     
     deps = token(str(source.uuid), True, genDeps=odict())
     if handlerscope(source.client):
         if scopescope(source.supplier):
             token(str(source.client.uuid), True, scopes=[]).scopes.append(source.supplier)
-        if handlerscope(source.supplier):
+        elif handlerscope(source.supplier):
             token(str(source.client.uuid), True, depends_on=[]).depends_on.append(source.supplier)
-        if generatorscope(source.supplier):
+        elif generatorscope(source.supplier):
             token(str(source.client.uuid), True, generators=[]).generators.append(source.supplier)
+    if generatorscope(source.client):
+        if generatorscope(source.supplier):
+            token(str(source.client.uuid), True, depends_on=[]).depends_on.append(source.supplier)
+        elif transformscope(source.supplier):
+            token(str(source.client.uuid), True, transforms=[]).transforms.append(source.supplier)
 
 @handler('mark_handler_as_function', 'uml2fs', 'hierarchygenerator', 'handler',
          order=15)
@@ -270,19 +277,64 @@ def finalize_handler(self, source, target):
 
 @handler('make_generators', 'uml2fs', 'connectorgenerator', 'generator')
 def make_generators(self, source, target):
-    egg=egg_source(source)
-    eggtarget=read_target_node(egg,target.target)
-    set_zcml_directive(eggtarget,'configure.zcml','agx:generator',
-                       'name',source.name,overwrite=True,
+    if source.stereotype('pyegg:stub'):
+        return
+    egg = egg_source(source)
+    eggtarget = read_target_node(egg, target.target)
+    zcml = get_zcml(eggtarget, 'configure.zcml')
+    tgv = TaggedValues(source)
+    
+    #if transform isnt specified as tgv, get it from dependency relations to other generators
+    transform = tgv.direct('transform', 'generator:generator', None)
+    if not transform:
+        transforms = token(str(source.uuid), True, transforms=[]).transforms
+        if len(transforms) > 1:
+            raise ValueError, \
+                'Currently only one transform per generator allowed (%s)' % source.name
+        elif len(transforms) == 1:
+            transform = transforms[0]
+    
+    if not transform:
+        transform = 'uml2fs'
+    
+    #if depends isnt specified as tgv, get it from dependency relations to transforms
+    depend = tgv.direct('depends', 'generator:generator', None)
+    if not depend:
+        depends = token(str(source.uuid), True, depends_on=[]).depends_on
+        if len(depends) > 1:
+            raise ValueError, \
+                'Currently only one depends per generator allowed (%s)' % source.name
+        elif len(depends) == 1:
+            depend = depends[0]
+    
+    if not depend:
+        depend = 'NO'
+    
+    directives = zcml.filter(tag='agx:generator', attr='name')
+    directive = None
+    for d in directives:
+        if d.attrs['name'] == source.name:
+            directive = d
+            break
+    
+    if not directive:
+        directive = SimpleDirective(name='agx:generator', parent=zcml)
+    
+    directive.attrs['name'] = source.name
+    directive.attrs['transform'] = transform
+    directive.attrs['depends'] = depend.name
+    
+    set_zcml_directive(eggtarget, 'configure.zcml', 'agx:generator',
+                       'name', source.name, overwrite=True,
                        )
     print eggtarget
 
 @handler('mark_generators_as_stub', 'uml2fs', 'hierarchygenerator', 'pyclass',
          order=10)
 def mark_generators_as_stub(self, source, target):
-        isgenerator=getUtility(IScope,'uml2fs.generator')
+        isgenerator = getUtility(IScope, 'uml2fs.generator')
         if not isgenerator(source):
             return
-        token('custom_handled_classes',True,classes=[]).classes.append(str(source.uuid))
+        token('custom_handled_classes', True, classes=[]).classes.append(str(source.uuid))
     #    token(str(source.uuid),True,dont_generate=True)
         token(str(source.uuid), True, dont_generate=True).dont_generate = True

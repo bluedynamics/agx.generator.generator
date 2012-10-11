@@ -74,3 +74,10 @@ class HandlerScope(Scope):
         return node.stereotype('generator:handler') is not None
 
 registerScope('handler', 'uml2fs', [IClass] , HandlerScope)
+
+class TransformScope(Scope):
+
+    def __call__(self, node):
+        return node.stereotype('generator:transform') is not None
+
+registerScope('transform', 'uml2fs', [IClass] , TransformScope)

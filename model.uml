@@ -10,6 +10,7 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_I815QA-yEeKgqPBQmBCgQg" name="GeneratorDependencyScope"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_TqsBUBCJEeKgqPBQmBCgQg" name="GeneratorStuffScope"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_SpipMBCQEeKgqPBQmBCgQg" name="HandlerScope"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_gfgX0BMfEeKq9vExglgxyg" name="TransformScope"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_TFwNsNexEeGgbbtOgTBdsg" name="generator">
         <packagedElement xmi:type="uml:Class" xmi:id="_pxXKIA-wEeKgqPBQmBCgQg" name="finalize_handler" clientDependency="_ErJ9oA_eEeKgqPBQmBCgQg _5oYgwBCuEeKgqPBQmBCgQg"/>
@@ -29,7 +30,8 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_zmtHoBCtEeKgqPBQmBCgQg" name="hierarchygenerator"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_xLnv0BCuEeKgqPBQmBCgQg" name="gen_connectorgenerator"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_EZo9UBLzEeKq9vExglgxyg" name="connectorgenerator"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_zV0IkBL1EeKq9vExglgxyg" name="somegenerator"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zV0IkBL1EeKq9vExglgxyg" name="somegenerator" clientDependency="_zKUv0BMtEeKq9vExglgxyg"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_zKUv0BMtEeKq9vExglgxyg" name="" supplier="_xLnv0BCuEeKgqPBQmBCgQg" client="_zV0IkBL1EeKq9vExglgxyg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_iwYeENeyEeGgbbtOgTBdsg" name="IProfileLocation"/>
     <profileApplication xmi:id="_zZ1OMFyQEeG1mLF7jMwarw">
@@ -69,7 +71,7 @@
     <stereotypes>generator:simple_scope</stereotypes>
     <interfaces>IClass</interfaces>
   </generator:class_scope>
-  <generator:handler xmi:id="_zV1KAA-wEeKgqPBQmBCgQg" base_Class="_pxXKIA-wEeKgqPBQmBCgQg" generator="gen_connectorgenerator"/>
+  <generator:handler xmi:id="_zV1KAA-wEeKgqPBQmBCgQg" base_Class="_pxXKIA-wEeKgqPBQmBCgQg" order="15" generator="gen_connectorgenerator"/>
   <generator:class_scope xmi:id="_VFukkA_cEeKgqPBQmBCgQg" base_Class="_fiAjoA7TEeKgj7WFwZrcAg" scopename="simplescope">
     <stereotypes>generator:simple_scope</stereotypes>
   </generator:class_scope>
@@ -97,4 +99,8 @@
   <generator:generator xmi:id="_JNft4BLzEeKq9vExglgxyg" base_Class="_EZo9UBLzEeKq9vExglgxyg"/>
   <pyegg:stub xmi:id="_JNo30BLzEeKq9vExglgxyg" base_Class="_EZo9UBLzEeKq9vExglgxyg"/>
   <generator:generator xmi:id="_5L5LIBL1EeKq9vExglgxyg" base_Class="_zV0IkBL1EeKq9vExglgxyg"/>
+  <generator:class_scope xmi:id="_FbNOkBMgEeKq9vExglgxyg" base_Class="_gfgX0BMfEeKq9vExglgxyg" scopename="transform">
+    <stereotypes>generator:transform</stereotypes>
+    <interfaces>IClass</interfaces>
+  </generator:class_scope>
 </xmi:XMI>

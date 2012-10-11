@@ -22,4 +22,9 @@
       depends="connectorgenerator"
       description="extra generator needed for handlers, that have to be treated as functions"/>
 
+    <agx:generator
+        name="somegenerator"
+        transform="uml2fs"
+        depends="gen_connectorgenerator">
+    
 </configure>

@@ -109,7 +109,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gMFprAspEeKGfoivsLRX3g"/>
     </children>
     <element xmi:type="uml:Stereotype" href="generator.profile.uml#_gL_jAAspEeKGfoivsLRX3g"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gMEbgQspEeKGfoivsLRX3g" x="275" y="180"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gMEbgQspEeKGfoivsLRX3g" x="265" y="180"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_jWdT4AspEeKGfoivsLRX3g" type="1026" fontName="Ubuntu" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jWd68AspEeKGfoivsLRX3g" source="ShadowFigure">
