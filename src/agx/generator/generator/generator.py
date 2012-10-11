@@ -28,6 +28,7 @@ from node.ext.python import (
     Function,
     Block,
     Decorator,
+    Attribute,
 )
 from node.ext.python.utils import Imports
 from agx.core import (
@@ -39,6 +40,7 @@ from agx.core import (
 from agx.generator.pyegg.utils import egg_source
 from agx.generator.zca.utils import set_zcml_directive, get_zcml
 from node.ext.zcml import SimpleDirective
+from agx.generator.pyegg.utils import class_base_name, implicit_dotted_path
 
 @handler('generatescopeclass', 'uml2fs', 'connectorgenerator', 'classscope',
          order=9)
@@ -59,6 +61,10 @@ def generatescopeclass(self, source, target):
         tgv.direct('transform', 'generator:simple_scope', None) or \
         'uml2fs'
     
+    if stereotypes:
+        for st in stereotypes:
+            if ':' not in st:
+                raise ValueError, 'you have to specify the stereotype in the form "namespace:stereotype", but forgot the namespace (scope %s,stereotype %s)' %(source.name,st)
     #if not stereotypes:
     #    raise ValueError,'scope %s must have a stereotype attribute!!' % source.name
     
@@ -82,6 +88,9 @@ def generatescopeclass(self, source, target):
 
 @handler('generatescopereg', 'uml2fs', 'semanticsgenerator', 'scope', order=15)
 def generatescopereg(self, source, target):
+    if source.stereotype('pyegg:stub'):
+        return
+    
     targetclass = read_target_node(source, target.target)
     module = targetclass.parent
     blocks = module.blocks()
@@ -243,8 +252,8 @@ def finalize_handler(self, source, target):
     for scope in tok.scopes:
         stgv = TaggedValues(scope)
     
-        scopename = stgv.direct('scopename', 'generator:class_scope') or \
-           stgv.direct('scopename', 'generator:class_scope') or \
+        scopename = stgv.direct('scopename', 'generator:class_scope', None) or \
+           stgv.direct('scopename', 'generator:simple_scope', None) or \
            scope.name
     
         transform = stgv.direct('transform', 'generator:class_scope', None) or \
@@ -327,7 +336,8 @@ def make_generators(self, source, target):
     set_zcml_directive(eggtarget, 'configure.zcml', 'agx:generator',
                        'name', source.name, overwrite=True,
                        )
-    print eggtarget
+    
+    pass
 
 @handler('mark_generators_as_stub', 'uml2fs', 'hierarchygenerator', 'pyclass',
          order=10)
@@ -338,3 +348,73 @@ def mark_generators_as_stub(self, source, target):
         token('custom_handled_classes', True, classes=[]).classes.append(str(source.uuid))
     #    token(str(source.uuid),True,dont_generate=True)
         token(str(source.uuid), True, dont_generate=True).dont_generate = True
+
+@handler('generate_profile_location', 'uml2fs', 'semanticsgenerator',
+         'profilelocation')
+def generate_profile_location(self, source, target):
+    targetclass=read_target_node(source,target.target)
+    module=targetclass.parent
+    
+    ifspec={'path': 'agx.core.interfaces.IProfileLocation', 'name': 'IProfileLocation'}
+    tok = token(str(targetclass.uuid), False, realizes=[])
+    if ifspec not in tok.realizes:
+        tok.realizes.append(ifspec)
+        
+    tgv=TaggedValues(source)
+    name=tgv.direct('profile_name','generator:profile_location',None)
+    if not name:
+        raise ValueError, 'profile_name tagged value not defined for %s!' % source.name
+    
+    imps=Imports(module)
+    frompath='.'.join(ifspec['path'].split('.')[:-1])
+    imps.set(frompath,[[ifspec['name'],None]])
+    
+    attributenames=[att.targets[0] for att in targetclass.attributes()]
+    if 'name' not in attributenames:
+        att=Attribute()
+        att.__name__=att.uuid
+        targetclass[att.name]=att
+        att.targets=['name']
+        att.value="'%s.profile.uml'" % name
+    
+    if 'package' not in attributenames:
+        att=Attribute()
+        att.__name__=att.uuid
+        targetclass[att.name]=att
+        att.targets=['package']
+        att.value=dotted_path(source.parent)
+        imps.set('',[[att.value,None]])
+        
+        #remove the import from this class
+        init=targetclass.parent.parent['__init__.py']
+        fromimp='.'.join(implicit_dotted_path(source).split('.')[:-1])
+        imps= [imp for imp in init.imports() if imp.fromimport==fromimp]
+        for imp in imps:
+            init.detach(str(imp.uuid))
+
+@handler('generate_profile_location_zcml', 'uml2fs', 'semanticsgenerator',
+         'profilelocation')
+def generate_profile_location_zcml(self, source, target):
+    if source.stereotype('pyegg:stub'):
+        return
+    
+    targetclass = read_target_node(source, target.target)
+    module = targetclass.parent
+    blocks = module.blocks()
+    egg = egg_source(source)
+    eggtarget = read_target_node(egg, target.target)
+    
+    
+    tgv = TaggedValues(source)
+    name = tgv.direct('name', 'generator:profile_location', None)
+    
+    set_zcml_directive(eggtarget,'configure.zcml','utility','name',
+            implicit_dotted_path(source),
+            provides="agx.core.interfaces.IProfileLocation",
+            component=implicit_dotted_path(source))
+
+@handler('prepare_zcml', 'uml2fs', 'connectorgenerator', 'pythonegg')
+def prepare_zcml(self, source, target):
+    package=read_target_node(source,target.target)
+    zcml=get_zcml(package,'configure.zcml',nsmap={'agx':"http://namespaces.zope.org/agx"})
+    set_zcml_directive(package,'configure.zcml','include','package','agx.generator.pyegg')

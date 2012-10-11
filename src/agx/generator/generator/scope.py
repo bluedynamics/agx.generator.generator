@@ -81,3 +81,10 @@ class TransformScope(Scope):
         return node.stereotype('generator:transform') is not None
 
 registerScope('transform', 'uml2fs', [IClass] , TransformScope)
+
+class ProfileLocationScope(Scope):
+
+    def __call__(self, node):
+        return node.stereotype('generator:profile_location') is not None
+
+registerScope('profilelocation', 'uml2fs', [IClass] , ProfileLocationScope)
