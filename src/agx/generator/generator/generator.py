@@ -426,6 +426,9 @@ def common_imports(self, source, target):
             has_handlers=True
             break
     
+    if not has_handlers:
+        return
+    
     #do some common imports
     imps = Imports(module)
     imps.set('node.ext.uml.interfaces', [
