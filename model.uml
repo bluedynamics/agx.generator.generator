@@ -46,7 +46,10 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_mGpa4BPtEeKq9vExglgxyg" name="" supplier="_RJwxQBPtEeKq9vExglgxyg" client="_Db2PwBPtEeKq9vExglgxyg"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_sKGaYBRWEeKcC97Hb5tvFQ" name="common_imports" clientDependency="_zTFPQBRWEeKcC97Hb5tvFQ _z8oikBRWEeKcC97Hb5tvFQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_zTFPQBRWEeKcC97Hb5tvFQ" name="Dependency1" supplier="_bmgBsBNEEeKq9vExglgxyg" client="_sKGaYBRWEeKcC97Hb5tvFQ"/>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_z8oikBRWEeKcC97Hb5tvFQ" name="Dependency2" supplier="_eHGZsBRWEeKcC97Hb5tvFQ" client="_sKGaYBRWEeKcC97Hb5tvFQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_z8oikBRWEeKcC97Hb5tvFQ" name="" supplier="_eHGZsBRWEeKcC97Hb5tvFQ" client="_sKGaYBRWEeKcC97Hb5tvFQ"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MsjsEBRvEeKcC97Hb5tvFQ" name="purgeclasses" clientDependency="_bOd2UBRvEeKcC97Hb5tvFQ _cfh1kBRvEeKcC97Hb5tvFQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_bOd2UBRvEeKcC97Hb5tvFQ" name="" supplier="_GALR4BPmEeKq9vExglgxyg" client="_MsjsEBRvEeKcC97Hb5tvFQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_cfh1kBRvEeKcC97Hb5tvFQ" name="Dependency3" supplier="_Z6_pQBPgEeKq9vExglgxyg" client="_MsjsEBRvEeKcC97Hb5tvFQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_zmtHoBCtEeKgqPBQmBCgQg" name="hierarchygenerator"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_xLnv0BCuEeKgqPBQmBCgQg" name="gen_connectorgenerator" clientDependency="_85cloBPfEeKq9vExglgxyg"/>
@@ -151,4 +154,5 @@
   <generator:simple_scope xmi:id="_kVOv4BRWEeKcC97Hb5tvFQ" base_Class="_eHGZsBRWEeKcC97Hb5tvFQ" scopename="pymodule"/>
   <pyegg:stub xmi:id="_qIThwBRWEeKcC97Hb5tvFQ" base_Class="_eHGZsBRWEeKcC97Hb5tvFQ"/>
   <generator:handler xmi:id="_vNaaYBRWEeKcC97Hb5tvFQ" base_Class="_sKGaYBRWEeKcC97Hb5tvFQ"/>
+  <generator:handler xmi:id="_U-yoABRvEeKcC97Hb5tvFQ" base_Class="_MsjsEBRvEeKcC97Hb5tvFQ"/>
 </xmi:XMI>

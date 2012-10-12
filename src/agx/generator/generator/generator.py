@@ -31,7 +31,10 @@ from node.ext.python import (
     Attribute,
 )
 from node.ext.python.utils import Imports
-from agx.generator.pyegg.utils import egg_source
+from agx.generator.pyegg.utils import (
+    egg_source,
+    implicit_dotted_path,
+)
 from agx.generator.zca.utils import set_zcml_directive, get_zcml
 from node.ext.zcml import SimpleDirective
 from agx.generator.pyegg.utils import class_base_name, implicit_dotted_path
@@ -417,7 +420,8 @@ def prepare_zcml(self, source, target):
 
 @handler('common_imports', 'uml2fs', 'semanticsgenerator', 'pymodule')
 def common_imports(self, source, target):
-    '''does common imports for modules with handlers'''
+    '''does common imports for modules with handlers
+    '''
     handlerscope=getUtility(IScope,'uml2fs.handler')
     module=read_target_node(source,target.target)
     has_handlers=False
@@ -448,20 +452,19 @@ def common_imports(self, source, target):
         ['registerScope', None],
         ['token', None],
     ])
-
+    
     imps.set('agx.core.interfaces', [
         ['IScope', None],
     ])
-
-    imps.set('agx.core.utils', [
+    
+    imps.set('agx.core.util', [
         ['read_target_node', None],
         ['dotted_path', None],
     ])
-
+    
     imps.set('agx.generator.pyegg.utils', [
         ['class_base_name', None],
         ['implicit_dotted_path', None],
     ])
-
-
-
+    
+    pass
