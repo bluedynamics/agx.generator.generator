@@ -22,9 +22,4 @@
       depends="connectorgenerator"
       description="extra generator needed for handlers, that have to be treated as functions"/>
 
-    <utility
-        name="agx.generator.generator.class1.Class1"
-        component="agx.generator.generator.class1.Class1"
-        provides="agx.core.interfaces.IProfileLocation"/>
-
 </configure>

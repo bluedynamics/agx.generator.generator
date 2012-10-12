@@ -31,12 +31,6 @@ from node.ext.python import (
     Attribute,
 )
 from node.ext.python.utils import Imports
-from agx.core import (
-    handler,
-    Scope,
-    registerScope,
-    token
-)
 from agx.generator.pyegg.utils import egg_source
 from agx.generator.zca.utils import set_zcml_directive, get_zcml
 from node.ext.zcml import SimpleDirective
@@ -301,7 +295,7 @@ def make_generators(self, source, target):
             raise ValueError, \
                 'Currently only one transform per generator allowed (%s)' % source.name
         elif len(transforms) == 1:
-            transform = transforms[0]
+            transform = transforms[0].name
     
     if not transform:
         transform = 'uml2fs'
@@ -314,7 +308,7 @@ def make_generators(self, source, target):
             raise ValueError, \
                 'Currently only one depends per generator allowed (%s)' % source.name
         elif len(depends) == 1:
-            depend = depends[0]
+            depend = depends[0].name
     
     if not depend:
         depend = 'NO'
@@ -331,7 +325,7 @@ def make_generators(self, source, target):
     
     directive.attrs['name'] = source.name
     directive.attrs['transform'] = transform
-    directive.attrs['depends'] = depend.name
+    directive.attrs['depends'] = depend
     
     set_zcml_directive(eggtarget, 'configure.zcml', 'agx:generator',
                        'name', source.name, overwrite=True,
@@ -416,5 +410,55 @@ def generate_profile_location_zcml(self, source, target):
 @handler('prepare_zcml', 'uml2fs', 'connectorgenerator', 'pythonegg')
 def prepare_zcml(self, source, target):
     package=read_target_node(source,target.target)
-    zcml=get_zcml(package,'configure.zcml',nsmap={'agx':"http://namespaces.zope.org/agx"})
+    zcml=get_zcml(package,'configure.zcml',
+                  nsmap={None:"http://namespaces.zope.org/zope",
+                    'agx':"http://namespaces.zope.org/agx"})
     set_zcml_directive(package,'configure.zcml','include','package','agx.generator.pyegg')
+
+@handler('common_imports', 'uml2fs', 'semanticsgenerator', 'pymodule')
+def common_imports(self, source, target):
+    '''does common imports for modules with handlers'''
+    handlerscope=getUtility(IScope,'uml2fs.handler')
+    module=read_target_node(source,target.target)
+    has_handlers=False
+    for klass in source.classes:
+        if handlerscope(klass):
+            has_handlers=True
+            break
+    
+    #do some common imports
+    imps = Imports(module)
+    imps.set('node.ext.uml.interfaces', [
+        ['IOperation', None],
+        ['IClass', None],
+        ['IPackage', None],
+        ['IInterface', None],
+        ['IInterfaceRealization', None],
+        ['IDependency', None],
+        ['IProperty', None],
+        ['IAssociation', None],
+    ])
+    
+    imps.set('agx.core', [
+        ['handler', None],
+        ['scope', None],
+        ['registerScope', None],
+        ['token', None],
+    ])
+
+    imps.set('agx.core.interfaces', [
+        ['IScope', None],
+    ])
+
+    imps.set('agx.core.utils', [
+        ['read_target_node', None],
+        ['dotted_path', None],
+    ])
+
+    imps.set('agx.generator.pyegg.utils', [
+        ['class_base_name', None],
+        ['implicit_dotted_path', None],
+    ])
+
+
+

@@ -14,6 +14,7 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_UbuEwBM-EeKq9vExglgxyg" name="ProfileLocationScope"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_GALR4BPmEeKq9vExglgxyg" name="PyClassScope"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_RJwxQBPtEeKq9vExglgxyg" name="PyEggScope"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_eHGZsBRWEeKcC97Hb5tvFQ" name="PyModuleScope"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_TFwNsNexEeGgbbtOgTBdsg" name="generator">
         <packagedElement xmi:type="uml:Class" xmi:id="_pxXKIA-wEeKgqPBQmBCgQg" name="finalize_handler" clientDependency="_ErJ9oA_eEeKgqPBQmBCgQg _5oYgwBCuEeKgqPBQmBCgQg"/>
@@ -43,6 +44,9 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_Db2PwBPtEeKq9vExglgxyg" name="prepare_zcml" clientDependency="_J7Nf4BPtEeKq9vExglgxyg _mGpa4BPtEeKq9vExglgxyg"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_J7Nf4BPtEeKq9vExglgxyg" name="" supplier="_EZo9UBLzEeKq9vExglgxyg" client="_Db2PwBPtEeKq9vExglgxyg"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_mGpa4BPtEeKq9vExglgxyg" name="" supplier="_RJwxQBPtEeKq9vExglgxyg" client="_Db2PwBPtEeKq9vExglgxyg"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_sKGaYBRWEeKcC97Hb5tvFQ" name="common_imports" clientDependency="_zTFPQBRWEeKcC97Hb5tvFQ _z8oikBRWEeKcC97Hb5tvFQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_zTFPQBRWEeKcC97Hb5tvFQ" name="Dependency1" supplier="_bmgBsBNEEeKq9vExglgxyg" client="_sKGaYBRWEeKcC97Hb5tvFQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_z8oikBRWEeKcC97Hb5tvFQ" name="Dependency2" supplier="_eHGZsBRWEeKcC97Hb5tvFQ" client="_sKGaYBRWEeKcC97Hb5tvFQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_zmtHoBCtEeKgqPBQmBCgQg" name="hierarchygenerator"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_xLnv0BCuEeKgqPBQmBCgQg" name="gen_connectorgenerator" clientDependency="_85cloBPfEeKq9vExglgxyg"/>
@@ -144,4 +148,7 @@
     <interfaces>IPackage</interfaces>
   </generator:simple_scope>
   <pyegg:stub xmi:id="_WcAG8BPtEeKq9vExglgxyg" base_Class="_RJwxQBPtEeKq9vExglgxyg"/>
+  <generator:simple_scope xmi:id="_kVOv4BRWEeKcC97Hb5tvFQ" base_Class="_eHGZsBRWEeKcC97Hb5tvFQ" scopename="pymodule"/>
+  <pyegg:stub xmi:id="_qIThwBRWEeKcC97Hb5tvFQ" base_Class="_eHGZsBRWEeKcC97Hb5tvFQ"/>
+  <generator:handler xmi:id="_vNaaYBRWEeKcC97Hb5tvFQ" base_Class="_sKGaYBRWEeKcC97Hb5tvFQ"/>
 </xmi:XMI>
