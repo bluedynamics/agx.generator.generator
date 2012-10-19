@@ -227,6 +227,8 @@ def collect_dependencies(self, source, target):
          order=15)
 def mark_handler_as_function(self, source, target):
     token(str(source.uuid), True, is_function=True)
+    egg=egg_source(source)
+    token(str(egg.uuid),True,is_generator_egg=True)
 
 @handler('finalize_handler', 'uml2fs', 'gen_connectorgenerator', 'handler',
          order=15)
@@ -412,11 +414,19 @@ def generate_profile_location_zcml(self, source, target):
 
 @handler('prepare_zcml', 'uml2fs', 'connectorgenerator', 'pythonegg')
 def prepare_zcml(self, source, target):
-    package=read_target_node(source,target.target)
-    zcml=get_zcml(package,'configure.zcml',
-                  nsmap={None:"http://namespaces.zope.org/zope",
-                    'agx':"http://namespaces.zope.org/agx"})
-    set_zcml_directive(package,'configure.zcml','include','package','agx.generator.pyegg')
+    '''prepares zcml for generator stuff, therefore the check'''
+    try:
+        tok=token(str(source.uuid),False,is_generator_egg=False)
+        if tok.is_generator_egg:
+            package=read_target_node(source,target.target)
+            zcml=get_zcml(package,'configure.zcml',
+                          nsmap={None:"http://namespaces.zope.org/zope",
+                            'agx':"http://namespaces.zope.org/agx"})
+            
+            set_zcml_directive(package,'configure.zcml','include','package','agx.generator.pyegg')
+    except ComponentLookupError:
+        #if we dont have a token, do nothing
+        pass
 
 @handler('common_imports', 'uml2fs', 'semanticsgenerator', 'pymodule')
 def common_imports(self, source, target):
