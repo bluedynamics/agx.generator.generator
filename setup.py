@@ -35,6 +35,8 @@ setup(name="agx.generator.generator",
       ),
       entry_points="""
       ##code-section entry_points
+      [agx.generator]
+      register = agx.generator.generator:register
       ##/code-section entry_points
       """,
       ##code-section additionals
