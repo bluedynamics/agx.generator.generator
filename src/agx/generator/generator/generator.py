@@ -483,11 +483,31 @@ def common_imports(self, source, target):
 @handler('setup_entry_points', 'uml2fs', 'hierarchygenerator', 'pythonegg',
          order=9)
 def setup_entry_points(self, source, target):
-    '''hooks in the entry point as a token, so that it gets generated 
-    by pyegg's eggdocuments handler'''
+    #hooks in the entry point as a token, so that it gets generated 
+    #by pyeggs eggdocuments handler
     
     ept='''[agx.generator]
          register = %s:register'''
     
     tok=token('entry_points',True,defs=[])
     tok.defs.append(ept % dotted_path(source))
+
+@handler('create_register_func', 'uml2fs', 'connectorgenerator', 'pythonegg')
+def create_register_func(self, source, target):
+    init=read_target_node(source,target.target)['__init__.py']
+    fname='register'
+    if fname not in init.functions():
+        f = Function()
+        f.functionname = fname
+        f.__name__ = str(f.uuid)
+        bl = Block()
+        bl.__name__ = str(bl.uuid)
+        bl.lines.append("'''register this generator'''")
+        bl.lines.append("import agx.generator.generator")
+        bl.lines.append("from agx.core.config import register_generator")
+        bl.lines.append("register_generator(%s)" % dotted_path(source))
+    
+        f.insertfirst(bl)
+
+    init[f.name]=f   
+#    import pdb;pdb.set_trace()

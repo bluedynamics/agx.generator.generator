@@ -53,6 +53,9 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_i3O_QFvQEeK2OIPViOliQA" name="setup_entry_points" clientDependency="_MM9_EFvWEeK2OIPViOliQA _RKqBEFvWEeK2OIPViOliQA"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_MM9_EFvWEeK2OIPViOliQA" name="" supplier="_RJwxQBPtEeKq9vExglgxyg" client="_i3O_QFvQEeK2OIPViOliQA"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_RKqBEFvWEeK2OIPViOliQA" name="" supplier="_zmtHoBCtEeKgqPBQmBCgQg" client="_i3O_QFvQEeK2OIPViOliQA"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_VtPh0FveEeK2OIPViOliQA" name="create_register_func" clientDependency="_xgK2MFveEeK2OIPViOliQA _1fE7wFveEeK2OIPViOliQA"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_xgK2MFveEeK2OIPViOliQA" name="" supplier="_RJwxQBPtEeKq9vExglgxyg" client="_VtPh0FveEeK2OIPViOliQA"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_1fE7wFveEeK2OIPViOliQA" name="" supplier="_EZo9UBLzEeKq9vExglgxyg" client="_VtPh0FveEeK2OIPViOliQA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_zmtHoBCtEeKgqPBQmBCgQg" name="hierarchygenerator"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_xLnv0BCuEeKgqPBQmBCgQg" name="gen_connectorgenerator" clientDependency="_85cloBPfEeKq9vExglgxyg"/>
@@ -159,4 +162,5 @@
   <generator:handler xmi:id="_vNaaYBRWEeKcC97Hb5tvFQ" base_Class="_sKGaYBRWEeKcC97Hb5tvFQ"/>
   <generator:handler xmi:id="_U-yoABRvEeKcC97Hb5tvFQ" base_Class="_MsjsEBRvEeKcC97Hb5tvFQ"/>
   <generator:handler xmi:id="_3XZQoFvQEeK2OIPViOliQA" base_Class="_i3O_QFvQEeK2OIPViOliQA" order="9"/>
+  <generator:handler xmi:id="_eEguwFveEeK2OIPViOliQA" base_Class="_VtPh0FveEeK2OIPViOliQA"/>
 </xmi:XMI>
