@@ -496,6 +496,7 @@ def setup_entry_points(self, source, target):
 def create_register_func(self, source, target):
     init=read_target_node(source,target.target)['__init__.py']
     fname='register'
+    path=dotted_path(source)
     if fname not in init.functions():
         f = Function()
         f.functionname = fname
@@ -503,9 +504,9 @@ def create_register_func(self, source, target):
         bl = Block()
         bl.__name__ = str(bl.uuid)
         bl.lines.append("'''register this generator'''")
-        bl.lines.append("import agx.generator.generator")
+        bl.lines.append("import %s" % path)
         bl.lines.append("from agx.core.config import register_generator")
-        bl.lines.append("register_generator(%s)" % dotted_path(source))
+        bl.lines.append("register_generator(%s)" % path)
     
         f.insertfirst(bl)
 
