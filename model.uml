@@ -50,6 +50,9 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_MsjsEBRvEeKcC97Hb5tvFQ" name="purgeclasses" clientDependency="_bOd2UBRvEeKcC97Hb5tvFQ _cfh1kBRvEeKcC97Hb5tvFQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_bOd2UBRvEeKcC97Hb5tvFQ" name="" supplier="_GALR4BPmEeKq9vExglgxyg" client="_MsjsEBRvEeKcC97Hb5tvFQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_cfh1kBRvEeKcC97Hb5tvFQ" name="" supplier="_Z6_pQBPgEeKq9vExglgxyg" client="_MsjsEBRvEeKcC97Hb5tvFQ"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_i3O_QFvQEeK2OIPViOliQA" name="setup_entry_points" clientDependency="_MM9_EFvWEeK2OIPViOliQA _RKqBEFvWEeK2OIPViOliQA"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_MM9_EFvWEeK2OIPViOliQA" name="" supplier="_RJwxQBPtEeKq9vExglgxyg" client="_i3O_QFvQEeK2OIPViOliQA"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_RKqBEFvWEeK2OIPViOliQA" name="" supplier="_zmtHoBCtEeKgqPBQmBCgQg" client="_i3O_QFvQEeK2OIPViOliQA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_zmtHoBCtEeKgqPBQmBCgQg" name="hierarchygenerator"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_xLnv0BCuEeKgqPBQmBCgQg" name="gen_connectorgenerator" clientDependency="_85cloBPfEeKq9vExglgxyg"/>
@@ -155,4 +158,5 @@
   <pyegg:stub xmi:id="_qIThwBRWEeKcC97Hb5tvFQ" base_Class="_eHGZsBRWEeKcC97Hb5tvFQ"/>
   <generator:handler xmi:id="_vNaaYBRWEeKcC97Hb5tvFQ" base_Class="_sKGaYBRWEeKcC97Hb5tvFQ"/>
   <generator:handler xmi:id="_U-yoABRvEeKcC97Hb5tvFQ" base_Class="_MsjsEBRvEeKcC97Hb5tvFQ"/>
+  <generator:handler xmi:id="_3XZQoFvQEeK2OIPViOliQA" base_Class="_i3O_QFvQEeK2OIPViOliQA" order="9"/>
 </xmi:XMI>

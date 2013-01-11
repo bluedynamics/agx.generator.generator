@@ -414,7 +414,8 @@ def generate_profile_location_zcml(self, source, target):
 
 @handler('prepare_zcml', 'uml2fs', 'connectorgenerator', 'pythonegg')
 def prepare_zcml(self, source, target):
-    '''prepares zcml for generator stuff, therefore the check'''
+    '''prepares zcml for generator stuff, therefore the check
+    '''
     try:
         tok=token(str(source.uuid),False,is_generator_egg=False)
         if tok.is_generator_egg:
@@ -478,3 +479,15 @@ def common_imports(self, source, target):
     ])
     
     pass
+
+@handler('setup_entry_points', 'uml2fs', 'hierarchygenerator', 'pythonegg',
+         order=9)
+def setup_entry_points(self, source, target):
+    '''hooks in the entry point as a token, so that it gets generated 
+    by pyegg's eggdocuments handler'''
+    
+    ept='''[agx.generator]
+         register = %s:register'''
+    
+    tok=token('entry_points',True,defs=[])
+    tok.defs.append(ept % dotted_path(source))

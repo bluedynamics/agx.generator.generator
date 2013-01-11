@@ -2,4 +2,4 @@
 #Wed Oct 10 15:50:54 CEST 2012
 profiles=pyegg;zca;generator
 generator=/home/phil/dev/projects/agx.dev/bin/agx
-target=/home/phil/dev/projects/agx.dev/devsrc/agx.generator.generator
+target=.

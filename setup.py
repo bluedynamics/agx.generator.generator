@@ -1,11 +1,16 @@
 # 
 
-from setuptools import setup, find_packages
-import sys, os
+import os
+from setuptools import (
+    setup,
+    find_packages,
+)
+
 
 version = "1.0"
-shortdesc =""
+shortdesc = ""
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+
 
 setup(name="agx.generator.generator",
       version=version,
@@ -29,7 +34,7 @@ setup(name="agx.generator.generator",
           ##code-section dependencies
           ##/code-section dependencies
       ],
-      extras_require = dict(
+      extras_require=dict(
           ##code-section extras_require
           ##/code-section extras_require
       ),

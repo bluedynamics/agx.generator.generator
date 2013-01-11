@@ -2,7 +2,6 @@
 import generator
 import scope
 
-
 def register():
     """Register this generator.
     """
