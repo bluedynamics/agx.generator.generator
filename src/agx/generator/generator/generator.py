@@ -555,7 +555,7 @@ def generate_vanilla_profile(self, source, target):
         
     if profilename+'.profile.uml' not in profiles.keys():
         ff=File()
-        ff._data=model_uml
+        ff._data=model_uml.replace('profilename_changeme',profilename)
         profiles[profilename+'.profile.uml']=ff
         
     if profilename+'.profile.notation' not in profiles.keys():

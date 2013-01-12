@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_29Xa4FwvEeK2OIPViOliQA" name="profile" metaclassReference="_H6LhUFwwEeK2OIPViOliQA _NisB8FwwEeK2OIPViOliQA _NisB8VwwEeK2OIPViOliQA">
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_29Xa4FwvEeK2OIPViOliQA" name="profilename_changeme" metaclassReference="_H6LhUFwwEeK2OIPViOliQA _NisB8FwwEeK2OIPViOliQA _NisB8VwwEeK2OIPViOliQA">
   <eAnnotations xmi:id="_mRgsIFwwEeK2OIPViOliQA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_hzRMgVyvEeKX68Wxt4XXBg" name="profilename_changeme" nsURI="http:///schemas/profilename_changeme/_hzRMgFyvEeKX68Wxt4XXBg/3" nsPrefix="profilename_changeme">
+      <eAnnotations xmi:id="_hzRzkFyvEeKX68Wxt4XXBg" source="PapyrusVersion">
+        <details xmi:id="_hzRzkVyvEeKX68Wxt4XXBg" key="Version" value="0.0.4"/>
+        <details xmi:id="_hzRzklyvEeKX68Wxt4XXBg" key="Comment" value=""/>
+        <details xmi:id="_hzRzk1yvEeKX68Wxt4XXBg" key="Copyright" value=""/>
+        <details xmi:id="_hzRzlFyvEeKX68Wxt4XXBg" key="Date" value="2013-01-12"/>
+        <details xmi:id="_hzRzlVyvEeKX68Wxt4XXBg" key="Author" value=""/>
+      </eAnnotations>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_EGZwcFyuEeKX68Wxt4XXBg" name="profilename_changeme" nsURI="http:///schemas/profilename_changeme/_EGYiUFyuEeKX68Wxt4XXBg/2" nsPrefix="profilename_changeme">
+      <eAnnotations xmi:id="_EGaXgFyuEeKX68Wxt4XXBg" source="PapyrusVersion">
+        <details xmi:id="_EGaXgVyuEeKX68Wxt4XXBg" key="Version" value="0.0.3"/>
+        <details xmi:id="_EGaXglyuEeKX68Wxt4XXBg" key="Comment" value=""/>
+        <details xmi:id="_EGaXg1yuEeKX68Wxt4XXBg" key="Copyright" value=""/>
+        <details xmi:id="_EGaXhFyuEeKX68Wxt4XXBg" key="Date" value="2013-01-12"/>
+        <details xmi:id="_EGaXhVyuEeKX68Wxt4XXBg" key="Author" value=""/>
+      </eAnnotations>
+    </contents>
     <contents xmi:type="ecore:EPackage" xmi:id="_yTIq8VwwEeK2OIPViOliQA" name="profile" nsURI="http:///schemas/profile/_yTIq8FwwEeK2OIPViOliQA/1" nsPrefix="profile">
       <eAnnotations xmi:id="_yTIq8lwwEeK2OIPViOliQA" source="PapyrusVersion">
         <details xmi:id="_yTIq81wwEeK2OIPViOliQA" key="Version" value="0.0.2"/>
