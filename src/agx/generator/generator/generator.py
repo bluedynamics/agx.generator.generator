@@ -128,7 +128,7 @@ def generatescopereg(self, source, target):
     
     imps.set('agx.core', [
         ['handler', None],
-        ['scope', None],
+        ['Scope', None],
         ['registerScope', None],
         ['token', None],
     ])
@@ -261,7 +261,7 @@ def finalize_handler(self, source, target):
     
         scopename = stgv.direct('scopename', 'generator:class_scope', None) or \
            stgv.direct('scopename', 'generator:simple_scope', None) or \
-           scope.name
+           scope.name.lower()
     
         transform = stgv.direct('transform', 'generator:class_scope', None) or \
            stgv.direct('transform', 'generator:class_scope', None) or \
@@ -467,7 +467,7 @@ def common_imports(self, source, target):
     
     imps.set('agx.core', [
         ['handler', None],
-        ['scope', None],
+        ['Scope', None],
         ['registerScope', None],
         ['token', None],
     ])
@@ -508,7 +508,7 @@ def create_register_func(self, source, target):
     init=read_target_node(source,target.target)['__init__.py']
     fname='register'
     path=dotted_path(source)
-    if fname not in init.functions():
+    if fname not in [f.functionname for f in init.functions()]:
         f = Function()
         f.functionname = fname
         f.__name__ = str(f.uuid)
@@ -521,7 +521,7 @@ def create_register_func(self, source, target):
     
         f.insertfirst(bl)
 
-    init[f.name]=f   
+        init[f.name]=f   
 
 @handler('generate_vanilla_profile', 'uml2fs', 'hierarchygenerator',
          'profile')
