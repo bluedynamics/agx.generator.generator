@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 from zope.component.interfaces import ComponentLookupError
 from zope.component import getUtility
 from odict import odict
@@ -13,6 +14,11 @@ from agx.core.util import (
     dotted_path,
 )
 from agx.core.interfaces import IScope
+
+from node.ext.directory import (
+    File,
+    Directory)
+
 from node.ext.uml.interfaces import (
     IOperation,
     IClass,
@@ -38,6 +44,8 @@ from agx.generator.pyegg.utils import (
 from agx.generator.zca.utils import set_zcml_directive, get_zcml
 from node.ext.zcml import SimpleDirective
 from agx.generator.pyegg.utils import class_base_name, implicit_dotted_path
+import agx.generator.generator
+import util
 
 @handler('generatescopeclass', 'uml2fs', 'connectorgenerator', 'classscope',
          order=9)
@@ -349,7 +357,7 @@ def mark_generators_as_stub(self, source, target):
         token(str(source.uuid), True, dont_generate=True).dont_generate = True
 
 @handler('generate_profile_location', 'uml2fs', 'semanticsgenerator',
-         'profilelocation')
+         'profile')
 def generate_profile_location(self, source, target):
     targetclass=read_target_node(source,target.target)
     module=targetclass.parent
@@ -360,7 +368,7 @@ def generate_profile_location(self, source, target):
         tok.realizes.append(ifspec)
         
     tgv=TaggedValues(source)
-    name=tgv.direct('profile_name','generator:profile_location',None)
+    name=tgv.direct('profile_name','generator:profile',None)
     if not name:
         raise ValueError, 'profile_name tagged value not defined for %s!' % source.name
     
@@ -392,7 +400,7 @@ def generate_profile_location(self, source, target):
             init.detach(str(imp.uuid))
 
 @handler('generate_profile_location_zcml', 'uml2fs', 'semanticsgenerator',
-         'profilelocation')
+         'profile')
 def generate_profile_location_zcml(self, source, target):
     if source.stereotype('pyegg:stub'):
         return
@@ -405,7 +413,7 @@ def generate_profile_location_zcml(self, source, target):
     
     
     tgv = TaggedValues(source)
-    name = tgv.direct('name', 'generator:profile_location', None)
+    #name = tgv.direct('name', 'generator:profile', None)
     
     set_zcml_directive(eggtarget,'configure.zcml','utility','name',
             implicit_dotted_path(source),
@@ -494,6 +502,9 @@ def setup_entry_points(self, source, target):
 
 @handler('create_register_func', 'uml2fs', 'connectorgenerator', 'pythonegg')
 def create_register_func(self, source, target):
+    '''creates the register function
+    '''
+
     init=read_target_node(source,target.target)['__init__.py']
     fname='register'
     path=dotted_path(source)
@@ -511,4 +522,45 @@ def create_register_func(self, source, target):
         f.insertfirst(bl)
 
     init[f.name]=f   
-#    import pdb;pdb.set_trace()
+
+@handler('generate_vanilla_profile', 'uml2fs', 'hierarchygenerator',
+         'profile')
+def generate_vanilla_profile(self, source, target):
+    tgv=TaggedValues(source)
+    profilename=tgv.direct('name','generator:profile',source.name)
+    
+    basepath=os.path.dirname(agx.generator.generator.__file__)
+    profilepath=os.path.join(basepath,'resources','vanilla_profile')
+    
+    #read the model files
+    model_di=open(os.path.join(profilepath,'model.profile.di')).read()
+    model_uml=open(os.path.join(profilepath,'model.profile.uml')).read()
+    model_notation=open(os.path.join(profilepath,'model.profile.notation')).read()
+
+    eggdir=read_target_node(egg_source(source),target.target)
+    
+    #create profiles dir
+    if 'profiles' not in eggdir.keys():
+        profiles=Directory()
+        profiles.__name__='profiles'
+        eggdir['profiles']=profiles
+        
+    profiles=eggdir['profiles']
+    
+    #add the model files with correct name and change the references
+    if profilename+'.profile.di' not in profiles.keys():
+        ff=File()
+        ff._data=model_di.replace('model.profile.notation',profilename+'.profile.notation')
+        profiles[profilename+'.profile.di']=ff
+        
+    if profilename+'.profile.uml' not in profiles.keys():
+        ff=File()
+        ff._data=model_uml
+        profiles[profilename+'.profile.uml']=ff
+        
+    if profilename+'.profile.notation' not in profiles.keys():
+        
+        ff=File()
+        ff._data=model_notation.replace('model.profile.uml',profilename+'.profile.uml')
+        profiles[profilename+'.profile.notation']=ff
+    

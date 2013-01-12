@@ -2,7 +2,7 @@ config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.core/src/agx
 config     DEBUG include /home/phil/dev/projects/agx.dev/eggs/zope.component-4.0.2-py2.7.egg/zope/component/meta.zcml
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.core/src/agx/core/meta.zcml
 main       INFO  AGX 3.0-dev - (c) BlueDynamics Alliance, http://bluedynamics.com, GPL 2
-main       INFO  Generator started at 11:14:03 2013-01-11.
+main       INFO  Generator started at 23:28:58 2013-01-11.
 main       INFO  generating model: /home/phil/dev/projects/agx.dev/devsrc/agx.generator.generator/model.uml
 main       INFO  using profiles: ['/home/phil/dev/projects/agx.dev/devsrc/agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml', '/home/phil/dev/projects/agx.dev/devsrc/agx.generator.zca/src/agx/generator/zca/profiles/zca.profile.uml', '/home/phil/dev/projects/agx.dev/devsrc/agx.generator.generator/src/agx/generator/generator/profiles/generator.profile.uml']
 main       INFO  generating into: /home/phil/dev/projects/agx.dev/devsrc/agx.generator.generator
@@ -18,4 +18,4 @@ config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.generator.um
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/agx.transform.xmi2uml/src/agx/transform/xmi2uml/configure.zcml
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/node.ext.xmi/src/node/ext/xmi/configure.zcml
 config     DEBUG include /home/phil/dev/projects/agx.dev/devsrc/node.ext.xml/src/node/ext/xml/configure.zcml
-main       INFO  Generator run took 8.22 sec.
+main       INFO  Generator run took 11.26 sec.

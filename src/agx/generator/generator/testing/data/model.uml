@@ -26,7 +26,7 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_Ic1AQBRDEeKcC97Hb5tvFQ" name="pyclass"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_kzJEgA5vEeKgj7WFwZrcAg" name="" supplier="_WqdF4AsqEeKGfoivsLRX3g" client="_W0v3AA5vEeKgj7WFwZrcAg"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_b5bi4BRDEeKcC97Hb5tvFQ" name="DemoProfileLocaction"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_b5bi4BRDEeKcC97Hb5tvFQ" name="ProfileLocaction"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_W0v3AA5vEeKgj7WFwZrcAg" name="mygenerator" clientDependency="_kzJEgA5vEeKgj7WFwZrcAg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_Us1j4BREEeKcC97Hb5tvFQ" name="someumlgenerator" clientDependency="_ehfU0BREEeKcC97Hb5tvFQ"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_ehfU0BREEeKcC97Hb5tvFQ" name="" supplier="_ZmRTkAsmEeKGfoivsLRX3g" client="_Us1j4BREEeKcC97Hb5tvFQ"/>
