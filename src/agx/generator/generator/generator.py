@@ -45,7 +45,6 @@ from agx.generator.zca.utils import set_zcml_directive, get_zcml
 from node.ext.zcml import SimpleDirective
 from agx.generator.pyegg.utils import class_base_name, implicit_dotted_path
 import agx.generator.generator
-import util
 
 @handler('generatescopeclass', 'uml2fs', 'connectorgenerator', 'classscope',
          order=9)
