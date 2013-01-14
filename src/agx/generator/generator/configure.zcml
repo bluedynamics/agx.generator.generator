@@ -3,23 +3,23 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:agx="http://namespaces.zope.org/agx">
 
-  <include package="agx.generator.pyegg"/>
+  <include package="agx.generator.pyegg" />
 
   <utility
       name="agx.generator.generator.profilelocation.ProfileLocation"
       provides="agx.core.interfaces.IProfileLocation"
-      component="agx.generator.generator.profilelocation.ProfileLocation"/>
+      component="agx.generator.generator.profilelocation.ProfileLocation" />
 
   <agx:generator
       name="zzcleanupgenerator"
       transform="uml2fs"
       depends="semanticsgenerator"
-      description="XXX Generator for final code cleanup of scope classes, this needs to be moved generically into pyegg as a final generator but therefore we need an order field on generators to be sorted on"/>
+      description="XXX Generator for final code cleanup of scope classes, this needs to be moved generically into pyegg as a final generator but therefore we need an order field on generators to be sorted on" />
 
   <agx:generator
       name="gen_connectorgenerator"
       transform="uml2fs"
       depends="connectorgenerator"
-      description="extra generator needed for handlers, that have to be treated as functions"/>
+      description="extra generator needed for handlers, that have to be treated as functions" />
 
 </configure>
