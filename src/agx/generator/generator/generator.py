@@ -492,6 +492,9 @@ def common_imports(self, source, target):
 def setup_entry_points(self, source, target):
     #hooks in the entry point as a token, so that it gets generated 
     #by pyeggs eggdocuments handler
+
+    if not token(str(source.uuid),True,is_generator_egg=False).is_generator_egg:
+        return
     
     ept='''[agx.generator]
          register = %s:register'''
@@ -503,6 +506,8 @@ def setup_entry_points(self, source, target):
 def create_register_func(self, source, target):
     '''creates the register function
     '''
+    if not token(str(source.uuid),True,is_generator_egg=False).is_generator_egg:
+        return
 
     init=read_target_node(source,target.target)['__init__.py']
     fname='register'
@@ -526,6 +531,11 @@ def create_register_func(self, source, target):
          'profile')
 def generate_vanilla_profile(self, source, target):
     tgv=TaggedValues(source)
+    egg=egg_source(source)
+    
+    if not token(str(egg.uuid),True,is_generator_egg=False).is_generator_egg:
+        return
+
     profilename=tgv.direct('name','generator:profile',source.name)
     
     basepath=os.path.dirname(agx.generator.generator.__file__)
