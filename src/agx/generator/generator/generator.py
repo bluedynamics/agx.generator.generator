@@ -254,11 +254,12 @@ def collect_dependencies(self, source, target):
 
 
 @handler('mark_handler_as_function', 'uml2fs', 'hierarchygenerator', 'handler',
-         order=15)
+         order=8)
 def mark_handler_as_function(self, source, target):
     token(str(source.uuid), True, is_function=True)
     egg = egg_source(source)
-    token(str(egg.uuid),True,is_generator_egg=True)
+    tok=token(str(egg.uuid),True,is_generator_egg=True)
+    tok.is_generator_egg=True
 
 
 @handler('finalize_handler', 'uml2fs', 'gen_connectorgenerator', 'handler',
@@ -519,6 +520,14 @@ def common_imports(self, source, target):
         ['implicit_dotted_path', None],
     ])
 
+def is_generator_egg(source):
+    if source.stereotype('generator:handler') is not None:
+        return 1
+    
+    for n in source.values():
+        if is_generator_egg(n):
+            return 1
+        
 
 @handler('setup_entry_points', 'uml2fs', 'hierarchygenerator', 'pythonegg',
          order=9)
@@ -526,7 +535,7 @@ def setup_entry_points(self, source, target):
     # hooks in the entry point as a token, so that it gets generated 
     # by pyeggs eggdocuments handler
     
-    if not token(str(source.uuid),True,is_generator_egg=False).is_generator_egg:
+    if not is_generator_egg(source):
         return
 
     ept = """[agx.generator]
@@ -534,7 +543,7 @@ def setup_entry_points(self, source, target):
     tok = token('entry_points', True, defs=[])
     tok.defs.append(ept % dotted_path(source))
 
-
+        
 @handler('create_register_func', 'uml2fs', 'connectorgenerator', 'pythonegg')
 def create_register_func(self, source, target):
     """Creates the register function.
