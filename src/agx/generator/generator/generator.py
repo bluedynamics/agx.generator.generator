@@ -321,7 +321,9 @@ def make_generators(self, source, target):
         return
     egg = egg_source(source)
     eggtarget = read_target_node(egg, target.target)
-    zcml = get_zcml(eggtarget, 'configure.zcml')
+    zcml = get_zcml(eggtarget, 'configure.zcml',
+                    nsmap={None: 'http://namespaces.zope.org/zope', 
+                           'agx': 'http://namespaces.zope.org/agx'})
     tgv = TaggedValues(source)
 
     # if transform isnt specified as tgv, get it from dependency relations to
@@ -355,6 +357,7 @@ def make_generators(self, source, target):
         depend = 'NO'
 
     directives = zcml.filter(tag='agx:generator', attr='name')
+
     directive = None
     for d in directives:
         if d.attrs['name'] == source.name:

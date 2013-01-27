@@ -1,0 +1,4 @@
+#---AGX Properties---
+#Fri Oct 12 12:00:11 CEST 2012
+profiles=pyegg;zca;generator
+target=.
