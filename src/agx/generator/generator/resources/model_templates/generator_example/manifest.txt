@@ -6,4 +6,5 @@ files=model.di;\
     model.uml.agx;\
 
 title=Generator Example
-description=(Advanced users only) Example model for a generator generator
+description=Example model for a generator generator.
+    (Advanced users only!)
