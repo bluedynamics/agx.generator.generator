@@ -404,8 +404,9 @@ def generate_profile_location(self, source, target):
     tgv = TaggedValues(source)
     name = tgv.direct('profile_name', 'generator:profile', None)
     if not name:
-        msg = 'profile_name tagged value not defined for %s!' % source.name
-        raise ValueError(msg)
+        name=source.name
+        #msg = 'profile_name tagged value not defined for %s!' % source.name
+        #raise ValueError(msg)
 
     imps = Imports(module)
     frompath = '.'.join(ifspec['path'].split('.')[:-1])
