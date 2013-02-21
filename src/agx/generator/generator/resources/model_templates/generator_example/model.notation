@@ -316,6 +316,11 @@
             <element xmi:type="uml:Comment" href="model.uml#_rdGOoHrZEeK-RajENgwa_Q"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rdM8UXrZEeK-RajENgwa_Q" x="10" y="282" width="221" height="116"/>
           </children>
+          <children xmi:type="notation:Shape" xmi:id="_7jeDsHw2EeKxnpwB-_Mwzg" type="3028">
+            <children xmi:type="notation:DecorationNode" xmi:id="_7jgf8Hw2EeKxnpwB-_Mwzg" type="5063"/>
+            <element xmi:type="uml:Comment" href="model.uml#_7hyosHw2EeKxnpwB-_Mwzg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7jeDsXw2EeKxnpwB-_Mwzg" x="29" y="157" width="201" height="71"/>
+          </children>
           <styles xmi:type="notation:TitleStyle" xmi:id="_XhJLZAssEeKGfoivsLRX3g"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XhJLZQssEeKGfoivsLRX3g"/>
         </children>

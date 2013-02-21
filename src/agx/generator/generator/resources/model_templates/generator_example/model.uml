@@ -31,6 +31,10 @@ Connect (with a dependency) to
 - any generator (purple) on the left
 </body>
         </ownedComment>
+        <ownedComment xmi:id="_7hyosHw2EeKxnpwB-_Mwzg">
+          <body>The two handlers above and the scope classes to the right can be removed from the model or changed for your purpose. They serve as examples.
+</body>
+        </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_HAh4wAssEeKGfoivsLRX3g" clientDependency="_Q-7bkAssEeKGfoivsLRX3g _ahVHgBRDEeKcC97Hb5tvFQ" name="myhandler2"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_X0I1UAsrEeKGfoivsLRX3g" clientDependency="_5psagAsrEeKGfoivsLRX3g _k5_vABREEeKcC97Hb5tvFQ" name="myhandler1"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_ahVHgBRDEeKcC97Hb5tvFQ" name="" client="_HAh4wAssEeKGfoivsLRX3g" supplier="_Ic1AQBRDEeKcC97Hb5tvFQ"/>
