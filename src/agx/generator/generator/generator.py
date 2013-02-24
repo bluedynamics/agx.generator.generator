@@ -522,7 +522,9 @@ def common_imports(self, source, target):
     ])
 
 def is_generator_egg(source):
-    if source.stereotype('generator:handler') is not None:
+    if source.stereotype('generator:handler') is not None or \
+        source.stereotype('generator:simple_scope') is not None or \
+        source.stereotype('generator:class_scope') is not None:
         return 1
     
     for n in source.values():
@@ -573,7 +575,7 @@ def create_register_func(self, source, target):
          'profile')
 def generate_vanilla_profile(self, source, target):
     egg = egg_source(source)
-    if not token(str(egg.uuid),True,is_generator_egg=False).is_generator_egg:
+    if not is_generator_egg(egg):
         return
 
     tgv = TaggedValues(source)
