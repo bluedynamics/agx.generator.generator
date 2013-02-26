@@ -54,7 +54,7 @@ Replace this comment with a Class for the custom scope.</body>
       <packagedElement xmi:type="uml:Class" xmi:id="_W0v3AA5vEeKgj7WFwZrcAg" clientDependency="_kzJEgA5vEeKgj7WFwZrcAg" name="mygenerator"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_Us1j4BREEeKcC97Hb5tvFQ" clientDependency="_ehfU0BREEeKcC97Hb5tvFQ" name="someumlgenerator"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_ehfU0BREEeKcC97Hb5tvFQ" name="" client="_Us1j4BREEeKcC97Hb5tvFQ" supplier="_ZmRTkAsmEeKGfoivsLRX3g"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_b5bi4BRDEeKcC97Hb5tvFQ" name="MyProfile"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_b5bi4BRDEeKcC97Hb5tvFQ" name="my_profile"/>
     </packagedElement>
     <profileApplication xmi:id="_zZ1OMFyQEeG1mLF7jMwarw">
       <eAnnotations xmi:id="_zaNBoFyQEeG1mLF7jMwarw" source="http://www.eclipse.org/uml2/2.0.0/UML">

@@ -524,7 +524,8 @@ def common_imports(self, source, target):
 def is_generator_egg(source):
     if source.stereotype('generator:handler') is not None or \
         source.stereotype('generator:simple_scope') is not None or \
-        source.stereotype('generator:class_scope') is not None:
+        source.stereotype('generator:class_scope') is not None or\
+        source.stereotype('generator:generator') is not None:
         return 1
     
     for n in source.values():
