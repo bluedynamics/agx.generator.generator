@@ -155,7 +155,7 @@ def generatescopereg(self, source, target):
     else:
         classname = 'Scope'
 
-    reg = "registerScope('%s', '%s', %s , %s)" % \
+    reg = "registerScope('%s', '%s', %s, %s)" % \
         (scopename, transform, ifstring, classname)
 
     # look if the reg stmt already exists
