@@ -57,10 +57,13 @@ import agx.generator.generator
 def generatescopeclass(self, source, target):
     """Generates scope classes.
     """
+    if source.stereotype('pyegg:stub'):
+        return
+    
     targetclass = read_target_node(source, target.target)
+    
     module = targetclass.parent
 
-    module = targetclass.parent
     methods = [m for m in targetclass.functions()]
     methnames = [m.functionname for m in methods]
     methname = '__call__'
